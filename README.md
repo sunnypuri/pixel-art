@@ -3,6 +3,12 @@ Udacity | Pixel Art Maker
 
 These are the main sections of the WebApp.
 
+## Features
+
+* **Dynamic Grid**
+* **Color Picker**
+* **Help**
+
 ## Prerequisites
 
 * **HTML 5**
