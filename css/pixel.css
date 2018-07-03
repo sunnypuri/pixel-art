@@ -1,0 +1,264 @@
+.main {
+    display: flex;
+}
+
+.right {
+    width: calc(100% - 50px);
+    margin-left: 50px;
+    padding: 10px;
+}
+
+.pixel-body {
+    display: flex;
+}
+
+.left {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+}
+
+.item-menu:hover {
+    cursor: pointer;
+}
+
+.popover {
+    left: 2px !important;
+}
+
+.popover-body {
+    font-weight: 600;
+}
+
+.box-row {
+    display: flex;
+}
+
+.box-col {
+    border: 1px solid;
+    width: 100%;
+}
+
+.tileRow {
+    width: 100%;
+    display: flex;
+}
+
+.container-one,
+.container-two {
+    padding: 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+}
+
+.gameBoard{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tileRow .tileWrap {
+    width: 100%;
+    display: flex;
+    display: -moz-box;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.tileRow .tileWrap .tile {
+    border: 1px solid #efefef;
+    transition: 100ms;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.eyeDropper .tileRow .tileWrap .tile {
+    cursor: crosshair;
+}
+
+.tileWrap:before {
+    content: "";
+    float: left;
+    padding-top: 100%;
+}
+
+.noframe .tileRow .tileWrap .tile {
+    border: none;
+}
+
+.container-one {
+    flex: 1;
+}
+
+.container-two {
+    width: 200px;
+    margin-left: 10px;
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.line {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.color-box {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.colors-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+[data-theme="primary"],
+.primary {
+    background: #2f2f2f;
+}
+
+[data-theme="black"],
+.black {
+    background: #000;
+}
+
+.white {
+    background: #fff;
+}
+
+[data-theme="tomato"],
+.tomato {
+    background-color:Tomato;
+}
+
+[data-theme="orange"],
+.orange {
+    background-color:Orange;
+}
+
+[data-theme="dodgerBlue"],
+.dodgerBlue {
+    background-color:DodgerBlue;
+}
+
+[data-theme="mediumSeaGreen"],
+.mediumSeaGreen {
+    background-color:MediumSeaGreen
+}
+
+[data-theme="gray"],
+.gray {
+    background-color:Gray;
+}
+
+.slateBlue {
+    background-color:SlateBlue;
+}
+
+.violet {
+    background-color:Violet;
+}
+
+.teal {
+    background-color:teal;
+}
+
+.lightSeaGreen {
+    background-color: lightseagreen;
+}
+
+.orangeRed {
+    background-color: orangered;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.cellValue {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row-cell,
+.col-cell {
+    display: flex;
+}
+
+.cell-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+
+.logo {
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 30px;
+    width: 30px;
+}
+
+.circle .tileRow .tileWrap .tile {
+    border-radius: 50%;
+}
+
+
+.frame-container {
+    display: flex;
+    justify-content: center;
+}
+
+#frame-box {
+    height: 25px;
+    width: 25px;
+    border: 2px solid #ccc;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#frame-circle {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+}
+
+#frame-box.active {
+    background-color: #000;
+}
+
+#frame-circle.active {
+    background-color: #000;
+}
+
+.show-backdrop{
+    display: flex;
+}

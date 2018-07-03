@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Pixel Art Game</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/pixel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+  </head>
+  <body>
+    <div id="backdrop" class="backdrop">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="main">
+        
+
+        <div id="theme" class="left" data-theme="primary">
+            <ul>
+                <li class="item-menu logo" data-toggle="popover" data-trigger="hover" data-content="Udacity">
+                    <img src="./img/udacity.svg.png" alt="Udacity">
+                </li>
+                <li id="pencil" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Pencil">
+                    <span class="fa fa-pencil-alt"></span>
+                </li>
+                <li id="eraser" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Eraser">
+                    <span class="fa fa-eraser"></span>
+                </li>
+                <li id="reset" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Clear (Ctrl + C)">
+                    <span class="fa fa-sync-alt"></span>
+                </li>
+                <li id="eyeDropper" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Color Picker">
+                    <span class="fa fa-eye-dropper"></span>
+                </li>
+                <li id="toggleGrid" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Toggle Grid (Ctrl + G)">
+                    <span class="fa fa-th"></span>
+                </li>
+                <li id="undo" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Undo (Ctrl + Z)">
+                    <span class="fa fa-undo"></span>
+                </li>
+                <li id="redo" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Redo (Ctrl + Y)">
+                    <span class="fa fa-redo"></span>
+                </li>
+                <li id="save" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Save as Image (Ctrl + S)">
+                    <span class="fa fa-save"></span>
+                </li>
+                <li id="help" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Help">
+                    <span class="fa fa-question-circle"></span>
+                </li>
+          </ul>
+      </div>
+      <div class="right">
+
+        <div class="pixel-header">
+            <h3>Pixel Art Maker</h3>
+        
+            <form id="sizePicker">
+                Grid Height:
+                <input type="number" id="inputHeight" name="height" min="1" value="30">
+                Grid Width:
+                <input type="number" id="inputWeight" name="width" min="1" value="50">
+                <input type="submit" value="Submit">
+            </form>
+            <br>    
+            <!-- <input type="color" id="colorPicker">
+            <h2>Pick A Color</h2> -->
+        </div>
+        <div class="pixel-body">
+            <div class="container-one">
+                
+                <div class="gameBoard">
+                  <div id="pixelCanvas" class="inner"></div>
+                </div>
+
+
+                <div id="img-out"></div>
+            </div>
+            <div class="container-two">
+                
+                <div class="cellValue">
+                    <div class="row-cell">
+                        <p class="cell-title">Row: </p> <div id="rowCell">0</div>
+                    </div>
+                    <div class="col-cell">
+                        <p class="cell-title">Col: </p> <div id="colCell">0</div>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="theme">
+                    <p class="title">Themes</p>
+                    <div class="colors-container">
+                        <div class="color-box primary" onclick="pixel.changeTheme('primary')"></div>
+                        <div class="color-box tomato" onclick="pixel.changeTheme('tomato')"></div>
+                        <div class="color-box orange" onclick="pixel.changeTheme('orange')"></div>
+                        <div class="color-box dodgerBlue" onclick="pixel.changeTheme('dodgerBlue')"></div>
+                        <div class="color-box mediumSeaGreen" onclick="pixel.changeTheme('mediumSeaGreen')"></div>
+                        <div class="color-box gray" onclick="pixel.changeTheme('gray')"></div>                        
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="animation">
+                    <p class="title">Animation</p>
+                    <button id="animation" type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true">
+                        <span class="handle"></span>
+                    </button>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="colors">
+                    <p class="title">Colors</p>
+                    <div class="colors-container">
+                        <div class="color-box black" onclick="pixel.setColor('#000')"></div>
+                        <div class="color-box tomato" onclick="pixel.setColor('#ff6347')"></div>
+                        <div class="color-box orange" onclick="pixel.setColor('#ffa500')"></div>
+                        <div class="color-box dodgerBlue" onclick="pixel.setColor('#1e90ff')"></div>
+                        <div class="color-box mediumSeaGreen" onclick="pixel.setColor('#3cb371')"></div>
+                        <div class="color-box gray" onclick="pixel.setColor('#808080')"></div>                        
+                    </div>
+                    <div class="colors-container">
+                        <div class="color-box slateBlue" onclick="pixel.setColor('#6a5acd')"></div>
+                        <div class="color-box violet" onclick="pixel.setColor('#ee82ee')"></div>
+                        <div class="color-box teal" onclick="pixel.setColor('#008080')"></div>
+                        <div class="color-box lightSeaGreen" onclick="pixel.setColor('#20b2aa')"></div>
+                        <div class="color-box orangeRed" onclick="pixel.setColor('#ff4500')"></div>
+                        <div class="color-box yellow" onclick="pixel.setColor('#ffff00')"></div>                          
+                    </div>
+
+                    <div class="colors-container">
+                        <input id="colorPicker" class="form-control jscolor {onFineChange:'pixel.updateColor(this)'}" value="000">
+                    </div>
+
+                </div>
+
+                <div class="line"></div>
+
+                <div class="frame">
+                    <p class="title">Frame</p>
+                    <div class="frame-container">
+                        <div id="frame-box" class="active"></div>
+                        <div id="frame-circle"></div>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+        
+
+    <!-- Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="./libraries/jscolor.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./libraries/FileSaver.min.js"></script>
+    <script src="./js/pixelart.js"></script>
+    <script>
+        $(function() {
+            $('[data-toggle="popover"]').popover();   
+        });
+
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
+  </body>
+</html>
