@@ -17,12 +17,12 @@
     <div id="backdrop" class="backdrop">
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
-    <div class="main" data-theme="primary">
+    <div class="main">
         
 
         <div id="theme" class="left">
             <ul>
-                <li class="item-menu logo" data-toggle="popover" data-trigger="hover" data-content="Udacity">
+                <li id="logo" class="item-menu logo" data-toggle="popover" data-trigger="hover" data-content="Udacity">
                     <img src="./img/udacity.svg.png" alt="Udacity">
                 </li>
                 <li id="pencil" class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Pencil">
@@ -99,29 +99,6 @@
 
                 <div class="line"></div>
 
-                <div class="theme">
-                    <p class="title">Themes</p>
-                    <div class="colors-container">
-                        <div class="color-box primary" onclick="pixel.changeTheme('primary')"></div>
-                        <div class="color-box tomato" onclick="pixel.changeTheme('tomato')"></div>
-                        <div class="color-box orange" onclick="pixel.changeTheme('orange')"></div>
-                        <div class="color-box dodgerBlue" onclick="pixel.changeTheme('dodgerBlue')"></div>
-                        <div class="color-box mediumSeaGreen" onclick="pixel.changeTheme('mediumSeaGreen')"></div>
-                        <div class="color-box gray" onclick="pixel.changeTheme('gray')"></div>                        
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="animation">
-                    <p class="title">Animation</p>
-                    <button id="animation" type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true">
-                        <span class="handle"></span>
-                    </button>
-                </div>
-
-                <div class="line"></div>
-
                 <div class="colors">
                     <p class="title">Colors</p>
                     <div class="colors-container">
@@ -147,8 +124,22 @@
 
                 </div>
 
+                
+
                 <div class="line"></div>
 
+                <div class="animation">
+                    <p class="title">Animation</p>
+                    <button id="animation" type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true">
+                        <span class="handle"></span>
+                    </button>
+                </div>
+
+                
+                <div class="line"></div>
+                
+                
+                
                 <div class="frame">
                     <p class="title">Frame</p>
                     <div class="frame-container">
@@ -156,7 +147,21 @@
                         <div id="frame-circle"></div>
                     </div>
                 </div>
-
+                
+                <div class="line"></div>
+                
+                <div class="theme">
+                    <p class="title">Themes</p>
+                    <div class="colors-container">
+                        <div class="color-box primary" onclick="pixel.changeTheme('primary')"></div>
+                        <div class="color-box tomato" onclick="pixel.changeTheme('tomato')"></div>
+                        <div class="color-box orange" onclick="pixel.changeTheme('orange')"></div>
+                        <div class="color-box dodgerBlue" onclick="pixel.changeTheme('dodgerBlue')"></div>
+                        <div class="color-box mediumSeaGreen" onclick="pixel.changeTheme('mediumSeaGreen')"></div>
+                        <div class="color-box gray" onclick="pixel.changeTheme('gray')"></div>                        
+                    </div>
+                </div>
+                
                 <div class="line"></div>
 
             </div>
@@ -176,7 +181,98 @@
               </button>
             </div>
             <div class="modal-body">
-              ...
+                <div id="theme" class="left help-list">
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Pencil">
+                                <span class="fa fa-pencil-alt"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Pencil
+                        </div>
+                    </div>
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Eraser">
+                                <span class="fa fa-eraser"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Eraser
+                        </div>
+                    </div>
+
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Clear (Ctrl + C)">
+                                <span class="fa fa-sync-alt"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Clear
+                        </div>
+                    </div>
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Color Picker">
+                                <span class="fa fa-eye-dropper"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Color Picker
+                        </div>
+                    </div>
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Toggle Grid (Ctrl + G)">
+                                <span class="fa fa-th"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Toggle Grid
+                        </div>
+                    </div>
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Undo (Ctrl + Z)">
+                                <span class="fa fa-undo"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Undo
+                        </div>
+                    </div>
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Redo (Ctrl + Y)">
+                                <span class="fa fa-redo"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Redo
+                        </div>
+                    </div>
+
+
+                    <div class="item-menu-container">
+                        <div class="item-menu-box">
+                            <div class="item-menu" data-toggle="popover" data-trigger="hover" data-content="Save as Image (Ctrl + S)">
+                                <span class="fa fa-save"></span>
+                            </div>
+                        </div>
+                        <div class="item-menu-details">
+                            Save as Image
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
