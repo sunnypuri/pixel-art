@@ -59,13 +59,13 @@ input[type=number] {
     list-style-type: none;
     text-align: left;
 }
-.left li {
+.left .item-menu {
     width: auto;
     height: 60px;
-    line-height: 50px;  
-    padding-left: 16px;
+    line-height: 50px;
+    text-align: center;
 }
-.left li:hover {
+.left .item-menu:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
