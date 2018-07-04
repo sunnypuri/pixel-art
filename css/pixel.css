@@ -305,3 +305,28 @@
     padding: 12px !important;
     width: 250px !important;
 }
+
+
+.left.help-list{
+    position: unset;
+    background: unset;
+    width: unset;
+}
+
+.help-list .item-menu{
+    /* background: #2f2f2f; */
+    width: 50px;
+}
+
+.help-list .item-menu-box{
+    background: #2f2f2f;
+}
+
+.item-menu-container{
+    display: flex;
+    align-items: center;
+}
+
+.item-menu-details{
+    padding-left: 10px;
+}
