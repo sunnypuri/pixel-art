@@ -53,6 +53,11 @@ class PixelArt {
 
     bindEvents(){
 
+        $("#myRange").on("change", ()=>{
+            let width = $("#myRange").val();
+            $(".inner").css("width", `${width}%`);
+        });
+
         $("#sizePicker").submit((e)=>{
             e.preventDefault();
             const height = $('#inputHeight').val();
@@ -66,7 +71,7 @@ class PixelArt {
 
             let frame = {
                 id: this.savedFrames.length+1,
-                name: frameName,
+                name: frameName || "Untitled",
                 data: this.udacityPixels
             }
 
@@ -75,6 +80,8 @@ class PixelArt {
             $('#frameName').val("");
 
             $("#savedFramesList").append(`<div class="saved-frame" onclick="pixel.callSavedFrame(${frame.id})"><b>${frame.id}.</b> ${frame.name}</div>`);
+
+            toastr.success('Frame Saved Successfully!');
         });
         
 
@@ -232,6 +239,7 @@ class PixelArt {
             return frame.id == id;
         })[0];
 
+        this.clearGrid();
         this.drawImage(frame.data, true);
         //console.log(frame);
     }
@@ -264,7 +272,7 @@ class PixelArt {
             
                 canvas.toBlob(function(blob){ saveAs(blob,"pic.png"); });
                 $("#backdrop").removeClass("show-backdrop");
-                toastr.success('Downloaded Successfully!')
+                toastr.success('Downloaded Successfully!');
                 });
         
             },0);
