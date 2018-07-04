@@ -9,18 +9,18 @@
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/pixel.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
   </head>
   <body>
     <div id="backdrop" class="backdrop">
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
-    <div class="main">
+    <div class="main" data-theme="primary">
         
 
-        <div id="theme" class="left" data-theme="primary">
+        <div id="theme" class="left">
             <ul>
                 <li class="item-menu logo" data-toggle="popover" data-trigger="hover" data-content="Udacity">
                     <img src="./img/udacity.svg.png" alt="Udacity">
@@ -57,18 +57,9 @@
       <div class="right">
 
         <div class="pixel-header">
+            
             <h3>Pixel Art Maker</h3>
-        
-            <form id="sizePicker">
-                Grid Height:
-                <input type="number" id="inputHeight" name="height" min="1" value="30">
-                Grid Width:
-                <input type="number" id="inputWeight" name="width" min="1" value="50">
-                <input type="submit" value="Submit">
-            </form>
-            <br>    
-            <!-- <input type="color" id="colorPicker">
-            <h2>Pick A Color</h2> -->
+            
         </div>
         <div class="pixel-body">
             <div class="container-one">
@@ -81,7 +72,22 @@
                 <div id="img-out"></div>
             </div>
             <div class="container-two">
-                
+                <form id="sizePicker">
+                    <div class="cellValue">
+                        <div>
+                            <p class="cell-title">Height: </p> <div class="grid-field-container"><input class="form-control grid-field" type="number" id="inputHeight" name="height" min="1" value="30"></div>
+                        </div>
+                        <div>
+                            <p class="cell-title">Width: </p> <div class="grid-field-container"><input class="form-control grid-field" type="number" id="inputWidth" name="width" min="1" value="50"></div>
+                        </div>
+                    </div>
+                    <div class="btn-draw-container">
+                        <button type="submit" class="btn btn-default btn-block btn-draw">Draw</button>
+                    </div>
+                </form>
+
+                <div class="line"></div>
+
                 <div class="cellValue">
                     <div class="row-cell">
                         <p class="cell-title">Row: </p> <div id="rowCell">0</div>
@@ -164,7 +170,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
+              <h5 class="modal-title">Instructions / Guide</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -173,8 +179,7 @@
               ...
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
