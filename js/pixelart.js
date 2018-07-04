@@ -15,6 +15,25 @@ class PixelArt {
 
         this.makeGrid(30, 50);
 
+        let theme;
+        if(localStorage.getItem("theme")){
+            theme = localStorage.getItem("theme");
+        }else{
+            localStorage.setItem("theme", "primary");
+            theme = "primary";
+        }
+
+        $("body").attr("data-theme", theme);
+
+        if(localStorage.getItem("pixels")){
+            this.udacityPixels = JSON.parse(localStorage.getItem("pixels"));
+            this.pixelStack.push(this.udacityPixels.slice());
+            this.topPixelStackIndex = this.pixelStack.length ? this.pixelStack.length -1 : 0;
+            this.drawImage(JSON.parse(localStorage.getItem("pixels")), false);
+        }else{
+            this.loadingImage();
+        }
+
         return this;
     }
 
@@ -96,6 +115,7 @@ class PixelArt {
         });
 
         $("#pixelCanvas").on("mouseup", ".tile",()=>{
+            localStorage.setItem("pixels", JSON.stringify(this.udacityPixels));
             this.pixelStack.push(this.udacityPixels.slice());
             this.topPixelStackIndex = this.pixelStack.length ? this.pixelStack.length -1 : 0;
         });
@@ -122,6 +142,8 @@ class PixelArt {
         $("#save").on("click", this.downloadGrid.bind(this));
 
         $("#help").on("click", this.help.bind(this));
+
+        $("#logo").on("click", this.loadingImage.bind(this));
 
 
         /* CTRL+__ events */
@@ -166,6 +188,13 @@ class PixelArt {
 
     }
 
+
+    loadingImage(){
+        this.clearGrid();
+        let pixels = [{"coords":"2_15","color":"#000"},{"coords":"3_15","color":"#000"},{"coords":"4_15","color":"#000"},{"coords":"5_15","color":"#000"},{"coords":"6_15","color":"#000"},{"coords":"7_15","color":"#000"},{"coords":"8_15","color":"#000"},{"coords":"9_15","color":"#000"},{"coords":"10_15","color":"#000"},{"coords":"11_15","color":"#000"},{"coords":"11_16","color":"#000"},{"coords":"12_16","color":"#000"},{"coords":"12_17","color":"#000"},{"coords":"12_18","color":"#000"},{"coords":"12_19","color":"#000"},{"coords":"12_20","color":"#000"},{"coords":"12_21","color":"#000"},{"coords":"11_21","color":"#000"},{"coords":"11_22","color":"#000"},{"coords":"10_22","color":"#000"},{"coords":"10_23","color":"#000"},{"coords":"9_23","color":"#000"},{"coords":"8_23","color":"#000"},{"coords":"7_23","color":"#000"},{"coords":"6_23","color":"#000"},{"coords":"5_23","color":"#000"},{"coords":"4_24","color":"#000"},{"coords":"3_24","color":"#000"},{"coords":"2_24","color":"#000"},{"coords":"1_24","color":"#000"},{"coords":"2_23","color":"#000"},{"coords":"3_23","color":"#000"},{"coords":"4_23","color":"#000"},{"coords":"5_23","color":"#000"},{"coords":"5_24","color":"#000"},{"coords":"6_24","color":"#000"},{"coords":"7_24","color":"#000"},{"coords":"8_24","color":"#000"},{"coords":"9_24","color":"#000"},{"coords":"9_23","color":"#000"},{"coords":"10_23","color":"#000"},{"coords":"10_22","color":"#000"},{"coords":"11_22","color":"#000"},{"coords":"11_21","color":"#000"},{"coords":"11_20","color":"#000"},{"coords":"11_19","color":"#000"},{"coords":"11_18","color":"#000"},{"coords":"11_17","color":"#000"},{"coords":"11_16","color":"#000"},{"coords":"10_16","color":"#000"},{"coords":"9_16","color":"#000"},{"coords":"8_16","color":"#000"},{"coords":"7_16","color":"#000"},{"coords":"6_16","color":"#000"},{"coords":"5_16","color":"#000"},{"coords":"4_16","color":"#000"},{"coords":"3_16","color":"#000"},{"coords":"4_16","color":"#000"},{"coords":"5_16","color":"#000"},{"coords":"5_15","color":"#000"},{"coords":"6_15","color":"#000"},{"coords":"7_15","color":"#000"},{"coords":"8_16","color":"#000"},{"coords":"9_16","color":"#000"},{"coords":"10_16","color":"#000"},{"coords":"11_16","color":"#000"},{"coords":"12_17","color":"#000"},{"coords":"13_17","color":"#000"},{"coords":"13_18","color":"#000"},{"coords":"13_19","color":"#000"},{"coords":"13_20","color":"#000"},{"coords":"13_21","color":"#000"},{"coords":"12_22","color":"#000"},{"coords":"11_22","color":"#000"},{"coords":"11_23","color":"#000"},{"coords":"10_23","color":"#000"},{"coords":"11_23","color":"#000"},{"coords":"12_23","color":"#000"},{"coords":"12_22","color":"#000"},{"coords":"12_21","color":"#000"},{"coords":"12_20","color":"#000"}];
+        this.drawImage(pixels, true);
+    }
+
     help(){
         $('#helpModal').modal('toggle')
     }
@@ -201,7 +230,7 @@ class PixelArt {
         this.clearGrid();
         this.topPixelStackIndex--;
         this.udacityPixels = this.pixelStack[this.topPixelStackIndex];
-        this.drawImage(this.udacityPixels);
+        this.drawImage(this.udacityPixels, false);
     }
 
     redo(){
@@ -211,16 +240,17 @@ class PixelArt {
         this.clearGrid();
         this.topPixelStackIndex++;
         this.udacityPixels = this.pixelStack[this.topPixelStackIndex];
-        this.drawImage(this.udacityPixels);
+        this.drawImage(this.udacityPixels, false);
     }
 
     reset(){
         this.clearGrid();
         this.pixelStack.push([]);
         this.topPixelStackIndex = this.pixelStack.length ? this.pixelStack.length -1 : 0;
+        localStorage.setItem("pixels", "");
     }
 
-    drawImage(pixels){
+    drawImage(pixels, animationFlag){
 
         let genObj = genFunc();
         
@@ -231,7 +261,7 @@ class PixelArt {
             } else {
             $(`#${val.value.coords}`).css("background-color", val.value.color);
             }
-        }, this.animation ? 100 : 0);
+        }, animationFlag ? this.animation ? 100 : 0 : 0);
         
         function* genFunc() {
             for(let pixel of pixels) {
@@ -287,7 +317,8 @@ class PixelArt {
       }
     
       changeTheme(color){
-        $(".main").attr('data-theme', color);
+        $("body").attr('data-theme', color);
+        localStorage.setItem("theme", color);
       }
 
 
