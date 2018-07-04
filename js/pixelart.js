@@ -23,7 +23,7 @@ class PixelArt {
         $("#sizePicker").submit((e)=>{
             e.preventDefault();
             const height = $('#inputHeight').val();
-            const width = $('#inputWeight').val();
+            const width = $('#inputWidth').val();
             this.makeGrid(height, width);
         });
 
@@ -245,10 +245,10 @@ class PixelArt {
     clearGrid(){
 
         const height = $('#inputHeight').val();
-        const weight = $('#inputWeight').val();
+        const width = $('#inputWidth').val();
         
         for(let i=0; i<height; i++){
-          for(let j=0; j<weight; j++){
+          for(let j=0; j<width; j++){
             $(`#${i}_${j}`).css('background-color', '');
           }
         }
@@ -287,7 +287,7 @@ class PixelArt {
       }
     
       changeTheme(color){
-        $("#theme").attr('data-theme', color);
+        $(".main").attr('data-theme', color);
       }
 
 
