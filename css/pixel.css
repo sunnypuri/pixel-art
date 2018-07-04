@@ -18,6 +18,10 @@
     top: 0;
 }
 
+.pixel-header{
+    text-align: center;
+}
+
 .item-menu:hover {
     cursor: pointer;
 }
@@ -107,6 +111,7 @@
 .container-two {
     width: 200px;
     margin-left: 10px;
+    text-align: center;
 }
 
 .title {
@@ -329,4 +334,16 @@
 
 .item-menu-details{
     padding-left: 10px;
+}
+
+.saved-frame-list{
+    text-align: left;
+}
+
+.saved-frame{
+    cursor: pointer;
+}
+
+.btn-save-frame{
+    width: 100%;
 }
