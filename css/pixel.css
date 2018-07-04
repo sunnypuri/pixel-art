@@ -134,12 +134,14 @@
     margin-top: 5px;
 }
 
-[data-theme="primary"],
+[data-theme="primary"] .left,
+[data-theme="primary"] .btn-draw,
 .primary {
     background: #2f2f2f;
 }
 
-[data-theme="black"],
+[data-theme="black"] .left,
+[data-theme="black"] .btn-draw,
 .black {
     background: #000;
 }
@@ -148,27 +150,32 @@
     background: #fff;
 }
 
-[data-theme="tomato"],
+[data-theme="tomato"] .left,
+[data-theme="tomato"] .btn-draw,
 .tomato {
     background-color:Tomato;
 }
 
-[data-theme="orange"],
+[data-theme="orange"] .left,
+[data-theme="orange"] .btn-draw,
 .orange {
     background-color:Orange;
 }
 
-[data-theme="dodgerBlue"],
+[data-theme="dodgerBlue"] .left,
+[data-theme="dodgerBlue"] .btn-draw,
 .dodgerBlue {
     background-color:DodgerBlue;
 }
 
-[data-theme="mediumSeaGreen"],
+[data-theme="mediumSeaGreen"] .left,
+[data-theme="mediumSeaGreen"] .btn-draw,
 .mediumSeaGreen {
     background-color:MediumSeaGreen
 }
 
-[data-theme="gray"],
+[data-theme="gray"] .left,
+[data-theme="gray"] .btn-draw,
 .gray {
     background-color:Gray;
 }
@@ -259,6 +266,42 @@
     background-color: #000;
 }
 
-.show-backdrop{
+.show-backdrop {
     display: flex;
+}
+
+
+.grid-field-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-field {
+    width: 85% !important;
+    padding: 5px 5px 5px 10px;
+}
+
+.btn-draw-container{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-draw{
+    color: #fff;
+    border-radius: 2px;
+    padding: 4px;
+    margin: 5px 0px;
+    width: 90%;
+}
+
+
+#toast-container > .toast-success {
+    background-image: none !important;
+}
+
+#toast-container > div{
+    margin: 0 0 6px !important;
+    padding: 12px !important;
+    width: 250px !important;
 }
