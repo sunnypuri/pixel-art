@@ -200,7 +200,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Pencil
+                            Pencil stores active color to draw in grid after using eraser
                         </div>
                     </div>
 
@@ -211,7 +211,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Eraser
+                            Eraser is used to erase art in grid
                         </div>
                     </div>
 
@@ -223,7 +223,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Clear
+                            Clear is used to reset the grid (Ctrl + C)
                         </div>
                     </div>
 
@@ -234,7 +234,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Color Picker
+                            Color Picker is used to pick color from pallette
                         </div>
                     </div>
 
@@ -245,7 +245,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Toggle Grid
+                            Toggle Grid is used to remove the bar lines in grid
                         </div>
                     </div>
 
@@ -256,7 +256,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Undo
+                            This is used to undo changes (Ctrl + Z)
                         </div>
                     </div>
 
@@ -267,7 +267,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Redo
+                            This is used to redo the changes (Ctrl + Y)
                         </div>
                     </div>
 
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Save as Image
+                            Save grid art using (Ctrl + S)
                         </div>
                     </div>
 
@@ -290,7 +290,7 @@
                             </div>
                         </div>
                         <div class="item-menu-details">
-                            Download
+                            Download gird in PNG format using (Ctrl + D)
                         </div>
                     </div>
 
@@ -328,6 +328,7 @@
     <script src="./js/pixelart.js"></script>
     <script>
         $(function() {
+            pixel = new PixelArt();
             $('[data-toggle="popover"]').popover();   
         });
 
