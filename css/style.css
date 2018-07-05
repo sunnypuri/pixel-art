@@ -154,7 +154,6 @@ span.menu {
 }
 
 .btn-toggle.btn-sm.btn-sm:before, .btn-toggle.btn-sm.btn-sm:after {
-    line-height: -0.5rem;
     color: #fff;
     letter-spacing: .75px;
     left: 0.4125rem;
