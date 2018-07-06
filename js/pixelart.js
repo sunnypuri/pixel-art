@@ -133,7 +133,7 @@ class PixelArt {
     
             let $this = $(e.currentTarget);
         
-            let [col, row] = $this.data("coord").split("_")
+            let [row, col] = $this.data("coord").split("_")
             $("#colCell").html(col);
             $("#rowCell").html(row);
         
