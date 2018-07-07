@@ -3,8 +3,21 @@ Udacity | Pixel Art Maker
 
 These are the main sections of the WebApp.
 
+## Deployment from master:
+>   https://sunnypuri.github.io/pixel-art/
+
 ## Features
 
+* **Undo**
+* **Redo**
+* **EyeDropper**
+* **Download as PNG**
+* **Save as Frame**
+* **Theme Changer**
+* **Toggle Grid**
+* **Reset**
+* **Eraser**
+* **Animated Frame**
 * **Dynamic Grid**
 * **Color Picker**
 * **Help**
@@ -24,9 +37,6 @@ These are the main sections of the WebApp.
 * `git clone <repository-url>` this repository
 * `cd pixel-art`
 * `run index.html`
-
-## Deployment from master:
->   http://www.sunnypuri.in
 
 ## Directory Structure:
 
